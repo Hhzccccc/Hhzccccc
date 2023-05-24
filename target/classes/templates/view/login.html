@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>登录-医院挂号系统</title>
+    <link rel="icon" href="../images/timg.jpg">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/css/index.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/css/public.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/swiper-bundle.css}"/>
+    <style>
+
+        .swiper {
+            box-shadow: 0 0 5px #000000;
+            width: 1770px;
+            height: 650px;
+            margin: 0 auto;
+            overflow: hidden;
+            font-size: 50px;
+            z-index: 0;
+        }
+        .swiper img {
+            width: 1770px;
+            height: 650px;
+        }
+
+        .login-picture {
+            padding-top: 15px;
+        }
+
+        .main-box {
+            width: 400px;
+            background-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 0 5px #000000;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+            padding: 50px 25px;
+            z-index: 3;
+        }
+
+        .header-top {
+            background-color: #773582;
+            width: 1800px;
+            height: 110px;
+        }
+        .header-top-left {
+            padding-top: 20px;
+            padding-left: 50px;
+            width: 700px;
+            height: 60px;
+        }
+        .header-top-left img {
+            width: 700px;
+            height: 60px;
+        }
+
+        .top-title {
+            text-align: center;
+            font-family: STKaiti;
+            font-size: 50px;
+            font-style: normal;
+            font-weight: bold;
+        }
+        .home-title {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body class="loginBody">
+<!--    <div class="header-top">-->
+<!--        <div class="container" style="width:100%">-->
+<!--            <div class="header-top-left">-->
+<!--                &lt;!&ndash;logo&ndash;&gt;-->
+<!--                    <a href="https://www.gcu.edu.cn">-->
+<!--                        <img src="../images/logo.png">-->
+<!--                    </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <div class="home-title">
+        <p class="top-title" >医院门诊管理系统</p>
+    </div>
+
+    <div class="login-picture">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="../images/bg1.jpg" /></div>
+                <div class="swiper-slide"><img src="../images/bg2.jpeg" /></div>
+                <div class="swiper-slide"><img src="../images/bg3.jpg" /></div>
+                <div class="swiper-slide"><img src="../images/bg4.jpg" /></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+
+            <!-- 如果需要导航按钮 -->
+<!--            <div class="swiper-button-prev"></div>-->
+<!--            <div class="swiper-button-next"></div>-->
+
+           <!-- 如果需要滚动条 -->
+            <div class="swiper-scrollbar"></div>
+        </div>
+    </div>
+
+
+    <div class="main-box">
+        <h3 class="text-center" style="margin-bottom: 10%">欢迎登陆医疗管理1.0试用</h3>
+        <!--  ctrl + k 格式化代码 -->
+        <form class="form-horizontal" id="loginFrm" th:action="@{/sel/login}" method="post">
+            <div class="form-group">
+                <label for="loginname" class="col-sm-2 control-label">账号</label>
+                <div class="col-sm-10">
+                    <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-badge-fill" viewBox="0 0 16 16">
+      <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
+    </svg>
+                                </span>
+                        <input type="text" id="loginname" name="loginname" class="form-control" placeholder="请输入账号"
+                               lay-verify="required">
+                        <span id="icon" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-10">
+                    <div class="input-group">
+                                <span class="input-group-addon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+      <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+    </svg>
+                                </span>
+                        <input id="pwd" type="password" name="pwd" class="form-control" placeholder="请输入密码"
+                               lay-verify="required">
+                        <span id="icon2" class="glyphicon form-control-feedback" style="padding-right: 62px;"
+                              aria-hidden="true"></span>
+                        <span class="input-group-addon" id="btn-eye">
+                                    <svg id="deye" onclick="clickEye()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+      <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+      <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+    </svg>
+                                </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="text-center col-sm-12">
+                    <button id="login_btn" type="button" lay-filter="login" class="btn btn-success" lay-submit>登录</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script th:src="@{/js/swiper-bundle.js}"></script>
+    <script type="text/javascript" th:src="@{/layui/layui.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery-3.1.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript">
+        function clickEye(){
+            var deye = document.getElementById("deye");
+            var pwd = document.getElementById("pwd");
+            if(pwd.type == "password"){
+                pwd.type = "text";
+                    deye.className='fa fa-eye-slash'
+            }else {
+                pwd.type = "password";
+                eye.className='fa fa-eye'
+            };
+        }
+        layui.use(['form', 'layer', 'jquery'], function () {
+            var form = layui.form,
+                layer = parent.layer === undefined ? layui.layer : top.layer
+            $ = layui.jquery;
+            $("#loginname").blur(function () {
+                    var loginname = $(this).val().trim();
+                    if ("" == loginname) {
+                        $(this).parent().addClass("has-error");
+                        $(this).parent().removeClass("has-success");
+                        $("#icon").addClass("glyphicon-remove");
+                        $("#icon").removeClass("glyphicon-ok");
+                    }else{
+                        $(this).parent().addClass("has-success");
+                        $(this).parent().removeClass("has-error");
+                        $("#icon").removeClass("glyphicon-remove");
+                        $("#icon").addClass("glyphicon-ok");
+                    }
+                $(this).val(loginname);
+                });
+            $("#pwd").blur(function () {
+                var pwd = $(this).val().trim();
+                if ("" == pwd) {
+                    $(this).parent().addClass("has-error");
+                    $(this).parent().removeClass("has-success");
+                    $("#icon").addClass("glyphicon-remove");
+                    $("#icon").removeClass("glyphicon-ok");
+                }else{
+                    $(this).parent().addClass("has-success");
+                    $(this).parent().removeClass("has-error");
+                    $("#icon").removeClass("glyphicon-remove");
+                    $("#icon").addClass("glyphicon-ok");
+                }
+                $(this).val(pwd);
+            });
+            $("#btn-eye").click(function() {
+                if (a) {
+                    $(this).children().addClass("glyphicon-eye-close");
+                    $(this).children().removeClass("glyphicon-eye-open");
+                    $("#pwd").attr("type", "password");
+                    a = false;
+                } else {
+                    $(this).children().addClass("glyphicon-eye-open");
+                    $(this).children().removeClass("glyphicon-eye-close");
+                    $("#pwd").attr("type", "text");
+                    a = true;
+                }
+            });
+            //登录按钮
+            form.on("submit(login)", function (data) {
+                $(this).text("登录中...").attr("disabled", "disabled").addClass("layui-disabled");
+                setTimeout(function () {
+                    $("#loginFrm").submit();
+                }, 1000);
+                return false;
+            })
+            $("#loginname").click(function () {
+                $("#msg").fadeOut(500);
+            })
+            $("#pwd").click(function () {
+                $("#msg").fadeOut(500);
+            })
+            //表单输入效果
+            $(".loginBody .input-item").click(function (e) {
+                e.stopPropagation();
+                $(this).addClass("layui-input-focus").find(".layui-input").focus();
+            })
+            $(".loginBody .layui-form-item .layui-input").focus(function () {
+                $(this).parent().addClass("layui-input-focus");
+            })
+            $(".loginBody .layui-form-item .layui-input").blur(function () {
+                $(this).parent().removeClass("layui-input-focus");
+                if ($(this).val() != '') {
+                    $(this).parent().addClass("layui-input-active");
+                } else {
+                    $(this).parent().removeClass("layui-input-active");
+                }
+            })
+
+        })
+        //初始化Swiper
+        var mySwiper = new Swiper ('.swiper', {
+            //direction: 'vertical', // 垂直切换选项
+            observer: true, //修改swiper自己或子元素时，自动初始化swiper
+            observeParents: true,//修改swiper的父元素时，自动初始化swiper
+            loop: true, // 循环模式选项
+
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true,
+            },
+            speed: 3500,
+            autoplay:true,//等同于以下设置
+            autoplay: {
+                delay: 3000,
+                //到最后一张图片时不停止
+                stopOnLastSlide: false,
+                //触碰后不停止自动切换
+                // disableOnInteraction: false,
+                waitForTransition: false,
+            },
+
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            //如果需要前进后退按钮
+            // navigation: {
+            //     nextEl: '.swiper-button-next',
+            //     prevEl: '.swiper-button-prev',
+            // },
+
+            // 如果需要滚动条
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        })
+    </script>
+</body>
+</html>

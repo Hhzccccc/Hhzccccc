@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: wangbuer
+Build-Jdk: version 1.8.0_171
+Implementation-Title: hospital
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.baiyun
+Main-Class: ${start-class}
+
